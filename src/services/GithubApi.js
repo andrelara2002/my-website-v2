@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const GIT_USER = process.env.GIT_USER
+const GIT_USER = 'andrelara2002'
 
 const api = axios.create({
     baseURL: "https://api.github.com/users/andrelara2002"
