@@ -6,6 +6,7 @@ import { AiFillLinkedin } from 'react-icons/ai'
 import { AiFillGithub } from 'react-icons/ai'
 
 import logo from '../../assets/logo_pink.svg'
+import profile from '../../assets/profile_foto.jpg'
 
 const navigation = [
   { name: 'Hop Digital', href: '#' },
@@ -66,6 +67,7 @@ export default function Hero({ description }) {
           />
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <img className='rounded-lg w-28 mx-auto mb-10 shadow-md' src={profile}></img>
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Announcing my next project.{' '}
