@@ -14,12 +14,15 @@ export default function Card({ Logo, title, description, link, github }) {
     return <article className="project container shadow border-1 border-gray-500 rounded-lg ">
         <section className="info p-5">
             <div className="text ">
-                <strong className="text-slate-700 capitalize">{title}</strong>
+                <section className="flex justify-between">
+                    <strong className="text-slate-700 capitalize">{title}</strong>
+                    {Logo && <Logo.icon size={15} color={Logo.color} />}
+                </section>
                 <p className="description text-slate-400 line-clamp-3">{description}</p>
             </div>
 
         </section>
-        <section className={`actions border-t-2  grid grid-cols-${link ? 2 : 1} border-gray-100`}>
+        <section className={`actions border-t-2  grid grid-cols-${!link ? 1 : 2} border-gray-100`}>
             <button onClick={() => handleWebsite(github)} className="action border-r-2 border-gray-100 hover:bg-pink-500 hover:rounded-lg">
                 <AiOutlineGithub />
                 <strong>Github</strong>
