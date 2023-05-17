@@ -3,6 +3,7 @@ import './App.css'
 
 import Hero from './components/hero/Hero'
 import { getUserInfo, getRepos } from './services/GithubApi'
+import Repositories from './components/repositories/respositories';
 
 export default function App() {
 
@@ -23,19 +24,27 @@ export default function App() {
       setState({ ...state, basic_info: user.data, repos_data: repos.data })
     }
 
-    console.log(!state.basic_info)
   }
 
   React.useEffect(() => {
+    const getData = async () => {
+      const user = await getUserInfo()
+      const repos = await getRepos()
+      console.log(repos?.data)
+
+      if (user.status === 200 && repos.status === 200) {
+        setState({ ...state, basic_info: user.data, repos_data: repos.data })
+      }
+
+    }
+
     getData()
   }, [])
 
-  if (!state.basic_info) { <p>Loading</p> }
-  else (
-    <>
-      <Hero />
+  if (!state.repos_data) return <p>Loading </p>
 
-    </>
-  )
-
+  return <>
+    <Hero description={state?.basic_info?.bio} />
+    <Repositories repos={state.repos_data} />
+  </>
 }
