@@ -1,9 +1,10 @@
 import React from 'react'
-import './App.css'
+import './style.sass'
 
 import Hero from './components/hero/Hero'
 import { getUserInfo, getRepos } from './services/GithubApi'
 import Repositories from './components/repositories/respositories';
+import SearchBar from './components/search_bar/SearchBar';
 
 export default function App() {
 
@@ -45,6 +46,7 @@ export default function App() {
 
   return <>
     <Hero description={state?.basic_info?.bio} />
+    <SearchBar onChange={e => setState({ ...state, search_string: e.target.value })} />
     <Repositories repos={state.repos_data} />
   </>
 }
