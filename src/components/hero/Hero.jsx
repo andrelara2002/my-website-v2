@@ -85,8 +85,8 @@ export default function Hero({ description }) {
               {description}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <AiFillLinkedin size={30} color='rgb(219 39 119)' />
-              <AiFillGithub size={30} color='rgb(219 39 119)' />
+              <AiFillLinkedin className='hover:shadow-md p-2 hover:cursor-pointer rounded' onClick={() => window.open('https://www.linkedin.com/in/andrelara2002/', '_blank')} size={50} color='rgb(219 39 119)' />
+              <AiFillGithub className='hover:shadow-md p-2 hover:cursor-pointer rounded' onClick={() => window.open('https://github.com/andrelara2002', '_blank')} size={50} color='rgb(219 39 119)' />
             </div>
           </div>
         </div>

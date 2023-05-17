@@ -11,7 +11,7 @@ export default function Card({ Logo, title, description, link, github }) {
         if (website) window.open(website, '_blank')
     }
 
-    return <article className="project container max-w-md shadow border-1 border-gray-500 rounded-lg ">
+    return <article className="project container shadow border-1 border-gray-500 rounded-lg ">
         <section className="info p-5">
             <div className="text ">
                 <strong className="text-slate-700 capitalize">{title}</strong>
