@@ -10,30 +10,21 @@ import { Puff } from 'react-loader-spinner';
 
 export default function App() {
 
-  const TIME_TO_UPDATE_IN_SECONDS = 5;
+  const TIME_TO_UPDATE_IN_SECONDS = 60;
 
+  const [search_string, setSearchString] = React.useState('')
   const [state, setState] = React.useState({
     basic_info: false,
     repos_data: false,
-    search_string: '',
-    filtered_data: []
+    filtered_data: [],
+    update: false
   })
 
-  const getData = async () => {
-    const user = await getUserInfo()
-    const repos = await getRepos()
-
-    if (user.status === 200 && repos.status === 200) {
-      setState({ ...state, basic_info: user.data, repos_data: repos.data })
-    }
-
-  }
 
   React.useEffect(() => {
     const getData = async () => {
       const user = await getUserInfo()
       const repos = await getRepos()
-      console.log(repos?.data)
 
       if (user.status === 200 && repos.status === 200) {
         setState({ ...state, basic_info: user.data, repos_data: repos.data })
@@ -42,6 +33,10 @@ export default function App() {
     }
 
     getData()
+    setInterval(() => {
+      getData()
+    }, TIME_TO_UPDATE_IN_SECONDS * 1000);
+
   }, [])
 
   if (!state.repos_data) return <Puff
@@ -60,11 +55,12 @@ export default function App() {
     <section className="container mx-auto w-full text-center ">
       <h3 className='text-3xl font-bold mb-5 dark:text-gray-100'>My Projects</h3>
     </section>
-    <SearchBar onChange={e => setState({ ...state, search_string: e.target.value })} />
+    <SearchBar onChange={e => setSearchString(e.target.value)} />
     <Repositories repos={
-      state.search_string ?
+      search_string ?
         state.repos_data.filter(x => {
-          const regular_expression = new RegExp(state.search_string, 'i')
+
+          const regular_expression = new RegExp(search_string, 'i')
           if (x.name.match(regular_expression)) return x.name
         })
         :

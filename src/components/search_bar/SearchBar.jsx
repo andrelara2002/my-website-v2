@@ -14,7 +14,7 @@ export default function SearchBar({ onChange }) {
             </div>
             <input
                 type="search" id="default-search" className="block w-full p-4 pl-10 text-sm hover:shadow-md focus:shadow-md
-                     text-gray-900 border focus:outline-none border-gray-300 rounded-lg bg-gray-50 focus:ring-pink-500
+                     text-gray-900 border dark:text-gray-100 focus:outline-none border-gray-300 rounded-lg bg-gray-50 focus:ring-pink-500
                     focus:border-pink-500 dark:bg-zinc-950 dark:border-zinc-700"
 
                 placeholder="Search projects"
