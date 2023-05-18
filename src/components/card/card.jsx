@@ -14,7 +14,7 @@ export default function Card({ Logo, title, description, link, github, language 
     }
 
 
-    return <article className="project hover:shadow-md container shadow border-1 dark:bg-zinc-900 border-gray-500 rounded-lg ">
+    return <article className="project hover:shadow-md container shadow border-1 bg-slate-50 dark:bg-zinc-900 border-gray-500 rounded-lg ">
         <section className="info p-5">
             <section className="text ">
                 <section className="flex justify-between">
@@ -29,13 +29,13 @@ export default function Card({ Logo, title, description, link, github, language 
         <section className={`actions ${!link ? 'col-1' : 'col-2'} border-t-2  dark:border-zinc-950 border-gray-100`}>
             <button onClick={() => handleWebsite(github)} className="action dark:border-zinc-900 border-gray-100 hover:bg-pink-500 hover:rounded-lg">
                 <AiOutlineGithub color={isDark() ? '#fff' : '#000'} />
-                <strong className="text-gray-100">Github</strong>
+                <strong className="text-gray-900 dark:text-gray-100">Github</strong>
             </button>
             {
                 link ?
                     <button onClick={() => handleWebsite(link)} className="action border-l-2   dark:border-gray-950 hover:bg-pink-500 hover:rounded-lg">
                         <BiLinkExternal color={isDark() ? '#fff' : '#000'} />
-                        <strong className="text-gray-100">Acessar</strong>
+                        <strong className="text-gray-900 dark:text-gray-100">Acessar</strong>
                     </button>
                     : <></>
             }
