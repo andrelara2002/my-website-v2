@@ -18,7 +18,7 @@ export default function Hero({ description }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
@@ -34,7 +34,7 @@ export default function Hero({ description }) {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-300"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -43,7 +43,7 @@ export default function Hero({ description }) {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <a key={item.name} target='_blank' href={item.href} className="text-sm hover:border-b-2 hover:border-pink-600 font-semibold leading-6 text-gray-900 dark:text-gray-100">
                 {item.name}
               </a>
             ))}
@@ -52,7 +52,7 @@ export default function Hero({ description }) {
         </nav>
         <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-zinc-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
@@ -64,7 +64,7 @@ export default function Hero({ description }) {
               </a>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
@@ -79,7 +79,7 @@ export default function Hero({ description }) {
                       key={item.name}
                       href={item.href}
                       target='_blank'
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
                     >
                       {item.name}
                     </a>
@@ -108,7 +108,7 @@ export default function Hero({ description }) {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <img className='rounded-lg w-28 mx-auto mb-10 shadow-md' src={profile}></img>
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 dark:text-gray-400 ring-gray-900/10 hover:ring-gray-200 dark:hover:ring-gray-100/2">
               Announcing my next project.{' '}
               <a href="https://github.com/HOPDigital/finance-app" target='_blank' className="font-semibold text-pink-600">
                 <span className="absolute inset-0" aria-hidden="true" />
@@ -117,15 +117,15 @@ export default function Hero({ description }) {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
               Hi! I'm André Lara
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
               {description}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <AiFillLinkedin className='hover:shadow-md p-2 hover:cursor-pointer rounded' onClick={() => window.open('https://www.linkedin.com/in/andrelara2002/', '_blank')} size={50} color='rgb(219 39 119)' />
-              <AiFillGithub className='hover:shadow-md p-2 hover:cursor-pointer rounded' onClick={() => window.open('https://github.com/andrelara2002', '_blank')} size={50} color='rgb(219 39 119)' />
+              <AiFillLinkedin className='hover:shadow-md p-2 dark:hover:bg-gray-200 hover:cursor-pointer rounded' onClick={() => window.open('https://www.linkedin.com/in/andrelara2002/', '_blank')} size={50} color='rgb(219 39 119)' />
+              <AiFillGithub className='hover:shadow-md p-2 dark:hover:bg-gray-200 hover:cursor-pointer rounded' onClick={() => window.open('https://github.com/andrelara2002', '_blank')} size={50} color='rgb(219 39 119)' />
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ export default function Repositories({ repos }) {
 
 
     return repos.length < 1 ? <strong className="p-5 ">No projects found </strong>
-        : <section className="repositories gap-5 grid grid-view">
+        : <section className="repositories gap-5 grid grid-view ">
             {
                 repos.map((repo, index) => {
                     const logo = Logotypes[repo.language?.toLowerCase()]

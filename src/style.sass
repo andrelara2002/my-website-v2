@@ -1,4 +1,27 @@
-.repo_search
-    display: flex
-    flex-direction: row
-    align-items: center
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+@layer base
+    :root
+        --background-color: #ffffff
+        --accent-color: #db2777
+        --text-color: #111827
+        --secondary-text-color: #4b5563
+
+    :root[class='dark']
+        --background-color: #030712
+        --accent-color: #db2777
+        --text-color: #f3f4f6
+        --secondary-text-color: #9ca3af
+
+    
+body::-webkit-scrollbar
+    width: 8px
+
+body::-webkit-scrollbar-track
+    background: var(--card-color)
+
+body::-webkit-scrollbar-thumb
+    background-color: var(--accent-color)
+    border-radius: 20px

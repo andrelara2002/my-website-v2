@@ -57,15 +57,14 @@ export default function App() {
 
   return <>
     <Hero description={state?.basic_info?.bio} />
-    <section className="container mx-auto w-full text-center">
-      <h3 className='text-3xl font-bold mb-5 '>My Projects</h3>
+    <section className="container mx-auto w-full text-center ">
+      <h3 className='text-3xl font-bold mb-5 dark:text-gray-100'>My Projects</h3>
     </section>
     <SearchBar onChange={e => setState({ ...state, search_string: e.target.value })} />
     <Repositories repos={
       state.search_string ?
         state.repos_data.filter(x => {
           const regular_expression = new RegExp(state.search_string, 'i')
-
           if (x.name.match(regular_expression)) return x.name
         })
         :
